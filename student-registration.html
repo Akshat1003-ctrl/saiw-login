@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>SAIW-StudentRegistration</title>
+    
+    <style>
+        /*
+        ====================================================
+        BASE CSS STYLES (Desktop First)
+        ====================================================
+        */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            /* --- BACKGROUND IMAGE STYLES --- */
+            background-image: url('images/Login_Screen\ \(1\).png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            height: 100vh;
+            position: relative; /* Needed for absolute positioning of footer */
+            transition: all 0.3s ease;
+        }
+
+        /* Footer positioning at the extreme bottom */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .footer-nav a {
+            color: #fff; /* White links for contrast against background */
+            font-size: 12px;
+            margin: 0 10px;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer-nav a:hover {
+            opacity: 1;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px #98a3e7;
+            position: relative;
+            overflow: hidden;
+            width: 500px; /* Reduced width for a single form page */
+            max-width: 90%;
+            min-height: 600px; /* Increased height to accommodate more fields */
+            transition: all 0.6s ease-in-out;
+            padding: 20px;
+        }
+
+        .container p {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.3px;
+            margin: 20px 0;
+        }
+
+        .container span {
+            font-size: 12px;
+        }
+
+        .container a {
+            color: #333;
+            font-size: 13px;
+            text-decoration: none;
+            margin: 15px 0 10px;
+        }
+
+        .container button {
+            background-color: #2d3ba8;
+            color: #fff;
+            font-size: 12px;
+            padding: 10px 45px;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .container button:active {
+            transform: scale(0.95);
+        }
+        
+        .container form {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            height: 100%;
+        }
+
+        .container input, .container select {
+            background-color: #eee;
+            border: none;
+            margin: 8px 0;
+            padding: 10px 15px;
+            font-size: 13px;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+        }
+
+        .form-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Grouping for Phone Number & Country Code */
+        .phone-group {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+        }
+        .phone-group .country-code {
+            width: 30%;
+        }
+        .phone-group .phone-number {
+            width: 70%;
+        }
+        
+        /* New style for the sign-in prompt */
+        .sign-in-prompt {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #555;
+        }
+        .sign-in-prompt a {
+            color: #2d3ba8;
+            font-weight: 600;
+            margin: 0;
+            text-decoration: underline;
+        }
+
+        /* Mobile Optimization */
+        @media screen and (max-width: 768px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 20px;
+                padding-bottom: 50px;
+            }
+
+            .container {
+                min-height: 600px;
+                width: 95vw;
+                max-width: 450px;
+                border-radius: 15px;
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.5);
+                padding: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div class="form-container">
+            <form>
+                <img src="images/SAIW_2.0_Black.png" alt="SAIW 2.0 Logo" class="logo">
+                <h1>Student Registration</h1>
+                <input type="text" placeholder="First Name" required>
+                <input type="text" placeholder="Surname" required>
+                <input type="email" placeholder="Email" required>
+                <input type="email" placeholder="Confirm Email" required>
+                
+                <select name="identity-type" class="identity-type" required>
+                    <option value="" disabled selected>Select Identity Type</option>
+                    <option value="sa-id">South African ID</option>
+                    <option value="passport">Passport</option>
+                </select>
+
+                <input type="text" placeholder="Identity Number" required>
+                
+                <div class="phone-group">
+                    <select class="country-code" required>
+                        <option value="+27">+27 (ZA)</option>
+                        <option value="+1">+1 (USA)</option>
+                        <option value="+44">+44 (UK)</option>
+                        <!-- Add more country codes as needed -->
+                    </select>
+                    <input type="tel" placeholder="Phone Number" class="phone-number" required>
+                </div>
+                
+                <button type="submit">Register</button>
+                
+                <!-- NEW LINK ADDED HERE -->
+                <p class="sign-in-prompt">Already have an account? <a href="index.html">Sign in</a></p>
+                
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer Navigation Links -->
+    <footer>
+        <nav class="footer-nav">
+            <a href="index.html">Back to Home</a> 
+            <a href="#">About</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">License Agreement</a>
+            <a href="#">Contact</a>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
