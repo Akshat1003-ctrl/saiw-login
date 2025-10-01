@@ -9,9 +9,9 @@
     
     <style>
         /*
-        ====================================================
-        BASE CSS STYLES (Desktop First)
-        ====================================================
+        ========================================
+        BASE CSS STYLES
+        ========================================
         */
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Tesla&display=swap');
@@ -22,29 +22,29 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Elements for mobile switch and logo, hidden by default */
+        /* Mobile specific elements start hidden */
         .mobile-switch-prompt, .mobile-switch-btn, .mobile-logo {
             display: none;
         }
 
         body {
-            /* --- BACKGROUND IMAGE STYLES --- */
+            /* Background setup */
             background-image: url('images/Login_Screen\ \(1\).png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             display: flex;
-            /* Container and info box are aligned to the right on desktop */
+            /* Alignment for desktop */
             flex-direction: column;
             align-items: flex-end; 
             justify-content: center;
             height: 100vh;
-            position: relative; /* Needed for absolute positioning of footer */
-            padding-right: 5%; /* Desktop padding */
+            position: relative; 
+            padding-right: 5%; 
             transition: all 0.3s ease;
         }
 
-        /* Footer positioning at the extreme bottom */
+        /* Footer positioning */
         footer {
             position: absolute;
             bottom: 10px;
@@ -53,31 +53,17 @@
             text-align: center;
         }
 
-        .footer-nav a {
-            color: #fff; /* White links for contrast against background */
-            font-size: 12px;
-            margin: 0 10px;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.2s;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-        }
-
-        .footer-nav a:hover {
-            opacity: 1;
-        }
-        
-        /* New style for the info box under the main container */
+        /* Information box below the main container */
         .saiw-info-box {
-            background-color: #e0f7fa; /* Light Blue Color */
-            color: #004d40; /* Dark text for contrast */
+            background-color: #e0f7fa; 
+            color: #004d40; 
             padding: 20px;
             margin-top: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             font-size: 14px;
             line-height: 1.5;
-            width: 1000px; /* Match desktop container width */
+            width: 1000px; 
             max-width: 90%;
         }
 
@@ -87,54 +73,13 @@
             box-shadow: 0 5px 15px #98a3e7;
             position: relative;
             overflow: hidden;
-            width: 1000px; /* Desktop width */
+            width: 1000px; 
             max-width: 90%;
             min-height: 480px; 
             transition: all 0.6s ease-in-out;
         }
 
-        .container p {
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 0.3px;
-            margin: 20px 0;
-        }
-
-        .container span {
-            font-size: 12px;
-        }
-
-        .container a {
-            color: #333;
-            font-size: 13px;
-            text-decoration: none;
-            margin: 15px 0 10px;
-        }
-
-        .container button {
-            background-color: #2d3ba8;
-            color: #fff;
-            font-size: 12px;
-            padding: 10px 45px;
-            border: 1px solid transparent;
-            border-radius: 8px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: transform 0.1s ease;
-        }
-
-        .container button:active {
-            transform: scale(0.95);
-        }
-
-        .container button.hidden {
-            background-color: transparent;
-            border-color: #fff;
-        }
-
+        /* Form styling */
         .container form {
             background-color: #fff;
             display: flex;
@@ -145,14 +90,7 @@
             height: 100%;
         }
         
-        /* Mobile adjustment for form height */
-        @media screen and (max-width: 768px) {
-            .container form {
-                height: auto;
-                min-height: 520px; /* INCREASED from 480px/550px to 520px for better fit */
-            }
-        }
-
+        /* Input fields */
         .container input {
             background-color: #eee;
             border: none;
@@ -164,6 +102,7 @@
             outline: none;
         }
 
+        /* Split layout container for forms */
         .form-container {
             position: absolute;
             top: 0;
@@ -171,82 +110,31 @@
             transition: all 0.6s ease-in-out;
         }
 
+        /* Sign In form position (Left side on desktop) */
         .sign-in {
             left: 0;
-            width: 50%; /* Desktop split */
+            width: 50%; 
             z-index: 2;
         }
 
-        .container.active .sign-in {
-            transform: translateX(100%);
-        }
-
+        /* Forgot Password form position (hidden initially) */
         .sign-up {
             left: 0;
-            width: 50%; /* Desktop split */
+            width: 50%; 
             opacity: 0;
             z-index: 1;
         }
 
-        .container.active .sign-up {
-            transform: translateX(100%);
-            opacity: 1;
-            z-index: 5;
-            animation: move 0.6s;
-        }
-
-        @keyframes move {
-            0%, 49.99% {
-                opacity: 0;
-                z-index: 1;
-            }
-            50%, 100% {
-                opacity: 1;
-                z-index: 5;
-            }
-        }
-
-        /* NEW STYLES FOR REGISTRATION BOXES */
+        /* Styles for student/company registration links */
         .registration-links-container {
             margin: 20px 0;
             display: flex;
             justify-content: center;
-            gap: 10px; /* Space between the boxes */
+            gap: 10px; 
             width: 100%;
         }
 
-        .registration-link {
-            flex-grow: 1;
-            max-width: 50%;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* Rounded corners instead of circular */
-            display: flex;
-            flex-direction: column; /* Stack image and text vertically */
-            justify-content: center;
-            align-items: center;
-            padding: 15px 10px;
-            font-size: 12px;
-            text-align: center;
-            font-weight: 600;
-            color: #2d3ba8;
-            text-decoration: none;
-            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-        
-        .registration-link img {
-            width: 40px; /* Icon size */
-            height: 40px;
-            margin-bottom: 5px;
-            object-fit: contain;
-        }
-
-        .registration-link:hover {
-            background-color: #2d3ba8;
-            color: #fff;
-            box-shadow: 0 4px 8px rgba(45, 59, 168, 0.2);
-        }
-        
-
+        /* Desktop side panel (Toggle) */
         .toggle-container {
             position: absolute;
             top: 0;
@@ -258,219 +146,74 @@
             border-radius: 150px 0 0 100px;
             z-index: 1000;
         }
-
-        .container.active .toggle-container {
-            transform: translateX(-100%);
-            border-radius: 0 150px 100px 0;
-        }
-
+        
         .toggle {
+            /* Background image for side panel */
             background-image: url('images/Welding_3.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100%;
-            color: #fff;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            box-shadow: inset 0 0 0 2000px rgba(45, 59, 168, 0.4); 
+            /* other positioning */
             position: relative;
             left: -100%;
-            height: 100%;
             width: 200%;
             transform: translateX(0);
             transition: all 0.6s ease-in-out;
-            box-shadow: inset 0 0 0 2000px rgba(45, 59, 168, 0.4); 
-        }
-
-        .container.active .toggle {
-            transform: translateX(50%);
-        }
-
-        .toggle-panel {
-            position: absolute;
-            width: 50%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 30px;
-            text-align: center;
-            top: 0;
-            transform: translateX(0);
-            transition: all 0.6s ease-in-out;
-        }
-
-        .toggle-logo {
-            width: 150px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        .toggle-left {
-            transform: translateX(-200%);
-        }
-
-        .container.active .toggle-left {
-            transform: translateX(0);
-        }
-
-        .toggle-right {
-            right: 0;
-            transform: translateX(0);
-        }
-
-        .container.active .toggle-right {
-            transform: translateX(200%);
-        }
-
-        .toggle-right h1 {
-            font-family: 'Tesla', sans-serif;
-        }
-        
-        .forgot-password-heading {
-            margin-bottom: 20px; 
-        }
-
-        .toggle-panel.toggle-right img {
-            width: 225px; 
-            height: auto;
-            margin-bottom: 15px;
         }
 
         /*
-        ====================================================
+        ========================================
         MOBILE OPTIMIZATION (max-width: 768px)
-        ====================================================
+        ========================================
         */
         @media screen and (max-width: 768px) {
+            /* Center container on mobile and allow scroll */
             body {
-                /* Center everything horizontally and vertically on mobile */
                 align-items: center; 
                 justify-content: center;
-                padding: 0;
-                /* Allow scrolling for content overflow */
+                padding: 20px 0 50px 0;
                 overflow-y: auto; 
-                min-height: 100vh; /* Ensure full screen height for centering */
+                min-height: 100vh;
                 height: auto; 
-                padding-top: 20px; /* Space at the top */
-                padding-bottom: 50px; /* Space above the fixed footer */
             }
 
             .container, .saiw-info-box {
-                /* Both container and info box take full mobile width and are centered */
                 width: 95vw;
                 max-width: 450px; 
                 border-radius: 15px;
             }
             
-            .container {
-                min-height: 480px; /* Retained value, adjusting form height below */
-            }
-
-            .container form {
-                height: auto;
-                min-height: 520px; /* Adjusted form min-height to provide more space */
-            }
-
-            /* Hide desktop specific elements */
+            /* Hide desktop side panel */
             .toggle-container {
                 display: none;
             }
+            
+            /* Forms take full width and stack */
             .form-container {
                 width: 100%;
-                /* Ensure forms are not absolute so they flow with the body content */
                 position: relative; 
             }
+            
+            /* Handle mobile form crossfade */
             .sign-in, .sign-up {
                 width: 100%;
                 left: 0;
-                /* Fix for mobile transition: forms should crossfade, not slide */
                 position: absolute; 
             }
             
-            /* Mobile transition adjustments (Crossfade) */
-            .container.active .sign-in { 
-                transform: translateX(0); 
-                opacity: 0; 
-                z-index: 1; /* Hide sign-in */
-                animation: none;
-            }
-        
-            .container.active .sign-up { 
-                transform: translateX(0);
-                opacity: 1; 
-                z-index: 5; /* Show sign-up */
-                animation: none;
-            }
-            .sign-up {
-                opacity: 0;
-                position: absolute;
-            }
-            .sign-in {
-                opacity: 1;
-                position: relative; /* Set initial form to relative to dictate container height */
-            }
-            .container.active .sign-in {
-                position: absolute;
-            }
-            .container.active .sign-up {
-                position: relative;
-            }
-            
-            /* Show mobile switch links and logo */
+            /* Show mobile specific elements */
             .mobile-switch-prompt, .mobile-switch-btn, .mobile-logo {
                 display: block;
             }
-            
-            /* ADJUSTED: Reduced the size of the mobile logo */
-            .mobile-logo {
-                display: block;
-                width: 120px; /* Reduced width from 150px to 120px */
-                height: auto;
-                margin-bottom: 20px;
-            }
-            /* END ADJUSTED */
 
-            .mobile-switch-btn {
-                background: none !important;
-                color: #2d3ba8 !important;
-                border: none !important;
-                padding: 0 !important;
-                text-transform: none !important;
-                font-weight: 600 !important;
-                margin-top: 5px !important;
-            }
-
-            .saiw-info-box {
-                margin-top: 15px;
-                margin-bottom: 0; /* Handled by body padding */
-                padding: 15px;
-            }
-            
+            /* Fix footer position on scroll */
             footer {
-                /* Anchor footer to the bottom of the viewport, even during scroll */
                 position: fixed;
                 bottom: 0;
-                background: rgba(0, 0, 0, 0.5); /* Background for text legibility */
+                background: rgba(0, 0, 0, 0.5); 
                 padding: 5px 0;
-            }
-
-            /* Mobile adjustment for new registration links */
-            .registration-links-container {
-                flex-direction: row; /* Keep side-by-side if there is enough space */
-                flex-wrap: wrap; /* Allow wrapping if space is tight */
-                gap: 8px;
-            }
-            
-            .registration-link {
-                max-width: 50%;
-                padding: 10px 5px; /* Reduced padding */
-                font-size: 11px; /* Slightly smaller font */
-            }
-            
-            .registration-link img {
-                width: 30px; /* Reduced icon size on mobile */
-                height: 30px;
             }
         }
     </style>
@@ -479,7 +222,7 @@
 <body>
 
     <div class="container" id="container">
-        <!-- Forgot Password Form (Sign-Up Equivalent) -->
+        <!-- Forgot Password Form -->
         <div class="form-container sign-up">
             <form>
                 <img src="images/SAIW_2.0_Black.png" alt="SAIW 2.0 Logo" class="mobile-logo">
@@ -487,7 +230,7 @@
                 <input type="email" placeholder="Email/Username/Identity Number" required>
                 <button type="submit">Submit</button>
 
-                <!-- MOBILE SWITCH LINK -->
+                <!-- Mobile: switch to Sign In -->
                 <p class="mobile-switch-prompt">Remember your password?</p>
                 <button type="button" class="mobile-switch-btn" id="mobile-login">Sign In</button> 
             </form>
@@ -496,7 +239,6 @@
         <!-- Sign In Form -->
         <div class="form-container sign-in">
             <form>
-                <!-- MOBILE LOGO: Hidden on desktop, shown on mobile -->
                 <img src="images/SAIW_2.0_Black.png" alt="SAIW 2.0 Logo" class="mobile-logo">
                 
                 <h1>Sign In</h1>
@@ -505,26 +247,24 @@
                 <input type="password" placeholder="Password" required>
                 <button type="submit">Sign In</button>
                 
-                <!-- REPLACED SOCIAL ICONS with Registration Links -->
+                <!-- Registration Links -->
                 <div class="registration-links-container">
-                    <!-- Link set to student-registration.html -->
                     <a href="student-registration.html" class="registration-link">
                         <img src="images/student.png" alt="Student Icon">
                         Student Registration
                     </a>
-                    <!-- UPDATED: Link set to company-registration.html -->
                     <a href="company-registration.html" class="registration-link">
                         <img src="images/company.png" alt="Company Icon">
                         Company Registration
                     </a>
                 </div>
 
-                <!-- MOBILE SWITCH LINK -->
+                <!-- Mobile: switch to Forgot Password -->
                 <button type="button" class="mobile-switch-btn" id="mobile-register">Forgot Password</button>
             </form>
         </div>
 
-        <!-- Toggle Panel Container (Only visible on Desktop) -->
+        <!-- Desktop Toggle Panel -->
         <div class="toggle-container">
             <div class="toggle">
                 <!-- Toggle Panel Left (Shown when Forgot Password is active) -->
@@ -561,22 +301,22 @@
     </footer>
 
     <!--
-    ====================================================
+    ========================================
     JAVASCRIPT
-    ====================================================
+    ========================================
     -->
     <script>
         const container = document.getElementById('container');
         
-        // Desktop Toggle Buttons (in the side panel)
+        // Desktop button references
         const registerBtnDesktop = document.getElementById('register');
         const loginBtnDesktop = document.getElementById('login');
 
-        // Mobile Toggle Buttons (in the forms)
+        // Mobile button references
         const registerBtnMobile = document.getElementById('mobile-register');
         const loginBtnMobile = document.getElementById('mobile-login');
 
-        // Function to handle the form switch
+        // Function to control the form switch (using the 'active' class)
         const switchForm = (toActive) => {
             if (toActive) {
                 container.classList.add("active");
@@ -585,7 +325,7 @@
             }
         };
 
-        // Attach listeners for desktop buttons
+        // Event listeners for desktop buttons
         if (registerBtnDesktop) {
             registerBtnDesktop.addEventListener('click', () => switchForm(true));
         }
@@ -593,7 +333,7 @@
             loginBtnDesktop.addEventListener('click', () => switchForm(false));
         }
 
-        // Attach listeners for mobile buttons
+        // Event listeners for mobile buttons
         if (registerBtnMobile) {
             registerBtnMobile.addEventListener('click', () => switchForm(true));
         }
